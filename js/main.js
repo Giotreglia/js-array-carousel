@@ -13,7 +13,8 @@ const listaImmagini = [
 
 // Variabili dal DOM
 const imagesListDom = document.querySelector(".images-list");
-
+const upDom = document.getElementById("up");
+const downDom = document.getElementById("down");
 
 
 // Ciclo per aggiunger immagini dell'array all'HTML
@@ -35,7 +36,35 @@ const imgContainerDom = document.getElementsByClassName("img-container");
 
 // Rendo visibile la prima immagine della lista
 let immagineCorrente = 0;
+
 imgContainerDom[immagineCorrente].classList.add('show');
+
+// Creo programma per cambiare immagine al clic sui pulsanti up e down
+
+// Pulsante up
+
+upDom.addEventListener('click',
+
+    function() {
+        if (immagineCorrente < imgContainerDom.length - 1) {
+
+            imgContainerDom[immagineCorrente].classList.remove('show');
+            console.log(immagineCorrente);
+
+            immagineCorrente++;
+            
+            console.log(immagineCorrente);
+
+            imgContainerDom[immagineCorrente].classList.add('show');
+            
+
+            if (immagineCorrente == imgContainerDom.length - 1) {
+                upDom.classList.add('hide');
+            }    
+
+        }
+    }
+);
 
 
 
