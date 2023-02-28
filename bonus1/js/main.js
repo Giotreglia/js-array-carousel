@@ -37,7 +37,7 @@ const imgContainerDom = document.getElementsByClassName("img-container");
 // Rendo visibile la prima immagine della lista
 let immagineCorrente = 0;
 imgContainerDom[immagineCorrente].classList.add('show');
-downDom.classList.add('hide');
+
 
 // Creo programma per cambiare immagine al clic sui pulsanti up e down
 
@@ -46,7 +46,7 @@ downDom.classList.add('hide');
 upDom.addEventListener('click',
 
     function() {
-        if (immagineCorrente < imgContainerDom.length - 1) {
+        if (immagineCorrente <= imgContainerDom.length - 1) {
             
             imgContainerDom[immagineCorrente].classList.remove('show');
 
@@ -57,7 +57,13 @@ upDom.addEventListener('click',
             downDom.classList.remove('hide');
             
             if (immagineCorrente == imgContainerDom.length - 1) {
-                upDom.classList.add('hide');
+                
+                imgContainerDom[immagineCorrente].classList.remove('show');
+
+                immagineCorrente = 0;
+
+                imgContainerDom[immagineCorrente].classList.add('show');
+                
             }    
             
         }
@@ -68,7 +74,7 @@ upDom.addEventListener('click',
 downDom.addEventListener('click',
 
     function() {
-        if (immagineCorrente > 0) {
+        if (immagineCorrente >= 0) {
             
             imgContainerDom[immagineCorrente].classList.remove('show');
 
@@ -79,7 +85,13 @@ downDom.addEventListener('click',
             upDom.classList.remove('hide');
             
             if (immagineCorrente == 0) {
-                downDom.classList.add('hide');
+                
+                imgContainerDom[immagineCorrente].classList.remove('show');
+
+                immagineCorrente = imgContainerDom.length - 1;
+
+                imgContainerDom[immagineCorrente].classList.add('show');
+                
             }    
             
             
