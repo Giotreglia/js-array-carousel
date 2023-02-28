@@ -44,14 +44,14 @@ let immagineCorrente = 0;
 imgContainerDom[immagineCorrente].classList.add('show');
 imgSidebarOverlayDom[immagineCorrente].classList.add('hide');
 sidebarContainerDom[immagineCorrente].classList.add('border');
-downDom.classList.add('hide');
+upDom.classList.add('hide');
 
 
 // Creo programma per cambiare immagine al clic sui pulsanti up e down
 
 // Pulsante up
 
-upDom.addEventListener('click',
+downDom.addEventListener('click',
 
     function() {
         if (immagineCorrente < imgContainerDom.length - 1) {
@@ -66,11 +66,12 @@ upDom.addEventListener('click',
             imgSidebarOverlayDom[immagineCorrente].classList.add('hide');
             sidebarContainerDom[immagineCorrente].classList.add('border');
 
-            downDom.classList.remove('hide');
+            upDom.classList.remove('hide');
             
             if (immagineCorrente == imgContainerDom.length - 1) {
                 
-                upDom.classList.add('hide');
+                
+                downDom.classList.add('hide');
                 
             }    
             
@@ -79,7 +80,7 @@ upDom.addEventListener('click',
 );
 
 // Pulsante down
-downDom.addEventListener('click',
+upDom.addEventListener('click',
 
     function() {
         if (immagineCorrente > 0) {
@@ -94,11 +95,11 @@ downDom.addEventListener('click',
             imgSidebarOverlayDom[immagineCorrente].classList.add('hide');
             sidebarContainerDom[immagineCorrente].classList.add('border');
 
-            upDom.classList.remove('hide');
+            downDom.classList.remove('hide');
             
             if (immagineCorrente == 0) {
                 
-                downDom.classList.add('hide');
+                upDom.classList.add('hide');
                 
             }    
             
