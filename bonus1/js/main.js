@@ -15,6 +15,8 @@ const listaImmagini = [
 const imagesListDom = document.querySelector(".images-list");
 const upDom = document.getElementById("up");
 const downDom = document.getElementById("down");
+const sidebarImgDom = document.querySelector(".images-sidebar-container");
+
 
 
 // Ciclo per aggiunger immagini dell'array all'HTML
@@ -27,16 +29,22 @@ for (let i = 0; i < listaImmagini.length; i++) {
         </div>
 
     `;
-
+    
     imagesListDom.innerHTML += newImgContainer; 
 }
 
-// Seleziono elementi array con classe 'img-container'
+// Seleziono elementi array con classe 'img-container' e 'img-sidebar-container'
 const imgContainerDom = document.getElementsByClassName("img-container");
+const imgSidebarOverlayDom = document.getElementsByClassName("overlay");
+const sidebarContainerDom = document.getElementsByClassName('img-sidebar-container');
+
 
 // Rendo visibile la prima immagine della lista
 let immagineCorrente = 0;
 imgContainerDom[immagineCorrente].classList.add('show');
+imgSidebarOverlayDom[immagineCorrente].classList.add('hide');
+sidebarContainerDom[immagineCorrente].classList.add('border');
+downDom.classList.add('hide');
 
 
 // Creo programma per cambiare immagine al clic sui pulsanti up e down
@@ -46,23 +54,23 @@ imgContainerDom[immagineCorrente].classList.add('show');
 upDom.addEventListener('click',
 
     function() {
-        if (immagineCorrente <= imgContainerDom.length - 1) {
+        if (immagineCorrente < imgContainerDom.length - 1) {
             
             imgContainerDom[immagineCorrente].classList.remove('show');
+            imgSidebarOverlayDom[immagineCorrente].classList.remove('hide');
+            sidebarContainerDom[immagineCorrente].classList.remove('border');
 
             immagineCorrente++;
 
             imgContainerDom[immagineCorrente].classList.add('show');
+            imgSidebarOverlayDom[immagineCorrente].classList.add('hide');
+            sidebarContainerDom[immagineCorrente].classList.add('border');
 
             downDom.classList.remove('hide');
             
             if (immagineCorrente == imgContainerDom.length - 1) {
                 
-                imgContainerDom[immagineCorrente].classList.remove('show');
-
-                immagineCorrente = 0;
-
-                imgContainerDom[immagineCorrente].classList.add('show');
+                upDom.classList.add('hide');
                 
             }    
             
@@ -74,23 +82,23 @@ upDom.addEventListener('click',
 downDom.addEventListener('click',
 
     function() {
-        if (immagineCorrente >= 0) {
+        if (immagineCorrente > 0) {
             
             imgContainerDom[immagineCorrente].classList.remove('show');
+            imgSidebarOverlayDom[immagineCorrente].classList.remove('hide');
+            sidebarContainerDom[immagineCorrente].classList.remove('border');
 
             immagineCorrente--;
 
             imgContainerDom[immagineCorrente].classList.add('show');
+            imgSidebarOverlayDom[immagineCorrente].classList.add('hide');
+            sidebarContainerDom[immagineCorrente].classList.add('border');
 
             upDom.classList.remove('hide');
             
             if (immagineCorrente == 0) {
                 
-                imgContainerDom[immagineCorrente].classList.remove('show');
-
-                immagineCorrente = imgContainerDom.length - 1;
-
-                imgContainerDom[immagineCorrente].classList.add('show');
+                downDom.classList.add('hide');
                 
             }    
             
