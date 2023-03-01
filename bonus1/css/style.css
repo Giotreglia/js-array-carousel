@@ -35,7 +35,7 @@
 }
 
 .sidebar-container {
-    width: 10vw;
+    width: 200px;
     height: 100%;
 }
 
@@ -56,16 +56,18 @@
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.5);
+    color: rgb(211, 207, 207);
+    /* background-color: rgba(255, 255, 255, 0.5); */
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    right: 75px;
+    /* transform: translateX(+50%); */
     cursor: pointer;
     z-index: 9999;
     transition: all 0.1s;
+    font-size: 20px;
 }
 
 #up {
@@ -85,7 +87,7 @@
 }
 
 .border {
-    border: solid 5px rgb(141, 255, 11);
+    border: solid 2px rgb(211, 208, 208);
 }
 
 .overlay {
